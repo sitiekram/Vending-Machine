@@ -7,7 +7,7 @@ namespace Vending_Machine.Models
     public class Vending_machine:IVending
     {
         protected static readonly int[] money = { 1, 5, 10, 20, 50, 100, 500, 1000 };
-         public int pay = 0;
+        public int pay = 0;
         private int depositedAmount;
         public int DepositedAmount
         {
@@ -56,8 +56,9 @@ namespace Vending_Machine.Models
                 if ((DepositedAmount-pay) >= prod.Price)
                 {
                     pay += prod.Price;
-                    stock[prod]--;
-                    
+                    --stock[prod];
+                    if (stock[prod] == 0)
+                        stock.Remove(prod);
                     result= $"You have bought {prod.Name}";
                 }
                 else

@@ -48,17 +48,7 @@ namespace Vending_Machine.Tests.Modelstests
             KeyNotFoundException result= Assert.Throws<KeyNotFoundException>(()=> vm.Purchase(barbie));
             Assert.Equal("Product has been finshed",result.Message);
         }
-        [Fact]
-        public void CheckProductExist1()
-        {
-            Product barbie = new Toy("Barbie", 100, "Nest", "USA", "doll");
-            Vending_machine vm = new Vending_machine();
-            Vending_machine.stock.Add(barbie, 0);
-            vm.DepositedAmount = 300;
-            KeyNotFoundException result = Assert.Throws<KeyNotFoundException>(() => vm.Purchase(barbie));
-            Assert.Equal("Product has been finshed", result.Message);
-        }
-
+        
         [Fact]
         public void DoesHaveEnoughMoney()
         {
