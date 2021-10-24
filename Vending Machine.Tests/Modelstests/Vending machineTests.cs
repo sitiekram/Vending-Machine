@@ -10,9 +10,7 @@ namespace Vending_Machine.Tests.Modelstests
         [Fact]
         public void InsertMoneyTest()
         {
-            Product barbie = new Toy("Barbie", 100, "Nest", "USA", "doll");
             Vending_machine vm = new Vending_machine();
-            Vending_machine.stock.Add(barbie, 5);
             int[] amount = { 0, 2, 1, 1, 2, 3, 1, 0 };
             string result = vm.InsertMoney(amount);
             Assert.Equal("You have inserted 940kr in the machine", result);

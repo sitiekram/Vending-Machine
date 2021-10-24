@@ -8,7 +8,7 @@ namespace Vending_Machine.Models
     {
         protected static readonly int[] money = { 1, 5, 10, 20, 50, 100, 500, 1000 };
         public int pay = 0;
-        private int depositedAmount;
+        private int depositedAmount=0;
         public int DepositedAmount
         {
             get { return depositedAmount; }
@@ -38,7 +38,6 @@ namespace Vending_Machine.Models
         // In the main method we ask user  the number of money inserted respectively for each denominator and store it in the amount arrray.
         public string InsertMoney(int[] amount)
         {
-            DepositedAmount = 0;
             for (int i = 0; i < money.Length; i++)
             {
                 if (amount[i] < 0)
@@ -78,7 +77,7 @@ namespace Vending_Machine.Models
         {
             foreach (Product pro in collection)
             {
-                if(stock[pro] >0)
+                if(stock.ContainsKey(pro) && stock[pro] > 0)
                    Console.WriteLine(pro.Name + "\nprice: " + pro.Price);
             }
         }
